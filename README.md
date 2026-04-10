@@ -28,12 +28,14 @@ Pre-exported streaming ONNX models are available on Hugging Face: [BMekiker/mimi
 ```bash
 pip install torch transformers onnx onnxruntime
 
-# 8 codebooks, 320ms chunks
-python scripts/export_streaming_onnx.py --num-codebooks 8 --chunk-ms 320 --output-dir onnx-models/streaming-8cb
+# 8 codebooks
+python scripts/export_streaming_onnx.py --num-codebooks 8 --output-dir onnx-models/streaming-8cb
 
 # 16 codebooks
-python scripts/export_streaming_onnx.py --num-codebooks 16 --chunk-ms 320 --output-dir onnx-models/streaming-16cb
+python scripts/export_streaming_onnx.py --num-codebooks 16 --output-dir onnx-models/streaming-16cb
 ```
+
+The exported models accept any chunk size that is a multiple of 80ms (1920 samples) at runtime — the chunk size is not baked into the graph.
 
 ## CLI Usage
 
