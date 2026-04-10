@@ -1,0 +1,14 @@
+target/
+models/
+onnx-models/
+*.wav
+*.m4a
+*.gguf
+*.onnx
+*.safetensors
+.DS_Store
+__pycache__/
+comparison_output/
+comparison_output_v2/
+android-libs/
+mimi-jni/.cargo/

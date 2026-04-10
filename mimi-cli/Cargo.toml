@@ -1,0 +1,25 @@
+[package]
+name = "mimi-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "mimi"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+candle = { workspace = true }
+candle-nn = { workspace = true }
+clap = { workspace = true }
+hf-hub = { workspace = true }
+mimi-core = { workspace = true }
+mimi-onnx = { path = "../mimi-onnx", optional = true }
+symphonia = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+
+[features]
+default = []
+onnx = ["dep:mimi-onnx"]

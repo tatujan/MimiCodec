@@ -1,0 +1,25 @@
+[package]
+name = "mimi-jni"
+version = "0.1.0"
+edition = "2021"
+license = "MIT/Apache-2.0"
+
+[lib]
+name = "mimi_jni"
+crate-type = ["cdylib"]
+
+[dependencies]
+candle = { version = "0.9.1", package = "candle-core", default-features = false }
+candle-nn = { version = "0.9.1", default-features = false }
+candle-transformers = { version = "0.9.1", default-features = false }
+jni = "0.21"
+mimi-core = { path = "../mimi-core", default-features = false }
+mimi-onnx = { path = "../mimi-onnx", optional = true }
+
+[features]
+default = []
+onnx = ["dep:mimi-onnx"]
+onnx-nnapi = ["onnx", "mimi-onnx/nnapi"]
+
+[patch.crates-io]
+candle-core = { path = "../candle-core-patched" }
